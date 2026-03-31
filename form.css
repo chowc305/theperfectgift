@@ -1,0 +1,1190 @@
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=Beau+Rivage&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Albert Sans", sans-serif;
+  font-optical-sizing: auto;
+  background-color: #fffeec;
+  color: #1f1e1e;
+  overflow-x: hidden;
+}
+
+/* Full-viewport sky photos per question (steps cycle bg1–bg4) */
+body.form-bg--sky {
+  background-color: #c8dff0;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+body.form-bg--sky.form-bg--1 {
+  background-image: url("imgs/bg1.png");
+}
+
+body.form-bg--sky.form-bg--2 {
+  background-image: url("imgs/bg2.png");
+}
+
+body.form-bg--sky.form-bg--3 {
+  background-image: url("imgs/bg3.png");
+}
+
+body.form-bg--sky.form-bg--4 {
+  background-image: url("imgs/bg4.png");
+}
+
+body.form-bg--sky .grid-container {
+  background-image: none;
+  background-color: transparent;
+  border-bottom-color: transparent;
+}
+
+body.form-bg--sky .header {
+  background-color: transparent;
+}
+
+.header {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 2em;
+  padding-right: 2em;
+  align-items: center;
+  background-color: #fffeec;
+}
+
+.header-cart {
+  position: relative;
+  width: 49px;
+  height: 54px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.header-cart-img--default {
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  display: block;
+  width: 45px;
+  height: 50px;
+}
+
+.header-cart-img--default[hidden] {
+  display: none !important;
+}
+
+/* Figma 207:630 — cart with “1” badge */
+.header-cart-add1 {
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  width: 45px;
+  height: 50px;
+}
+
+.header-cart-add1[hidden] {
+  display: none !important;
+}
+
+.header-cart-add1-img {
+  position: relative;
+  z-index: 0;
+  display: block;
+  width: 45px;
+  height: 50px;
+  object-fit: contain;
+  object-position: center;
+}
+
+.header-cart-add1-badge {
+  position: absolute;
+  z-index: 1;
+  right: -2px;
+  bottom: 2px;
+  width: 22px;
+  height: 22px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  background-color: #f3d52a;
+  border: 1px solid #1f1e1e;
+  font-family: "Albert Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  text-align: center;
+  color: #1f1e1e;
+  padding-top: 1px;
+}
+
+/* Route hover to wrapper so tooltip triggers on full icon box */
+.header-cart > img,
+.header-cart > div,
+.header-cart-add1 > img,
+.header-cart-add1 > span {
+  pointer-events: none;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.header-title-link {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.header-title-link:hover {
+  opacity: 0.85;
+}
+
+.header-title-link:focus-visible {
+  outline: 2px solid #1f1e1e;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+.content {
+  position: relative;
+  width: 100%;
+}
+
+.grid-container {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  height: 900px;
+  background-size: 50px 50px;
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+  background-color: #fffeec;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Figma 157:136 — survey CTA card (viewport-centered) */
+.form-survey-wrap {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  /* Room below question box / survey column so it doesn’t sit flush on the viewport edge */
+  padding: 1rem 1rem calc(1rem + 20px) 1rem;
+  pointer-events: none;
+  gap: 24px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* After Start: pin stack to top so changing question height doesn’t re-center the progress bar */
+.form-survey-wrap.form-survey-wrap--survey-flow {
+  justify-content: flex-start;
+  padding-top: clamp(2.5rem, 10vh, 6rem);
+}
+
+.form-survey-wrap .form-survey-card {
+  pointer-events: auto;
+}
+
+.form-survey-card {
+  width: min(628px, 100%);
+  min-height: 200px;
+  box-sizing: border-box;
+  padding: 30px 40px;
+  background-color: #fffeec;
+  border: 1px solid #1f1e1e;
+  border-radius: 30px;
+  box-shadow: 4px 4px 0 0 #1f1e1e;
+}
+
+.form-survey-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+}
+
+.form-survey-heading-row {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-survey-heading {
+  margin: 0;
+  max-width: calc(38rem - 150px);
+  font-family: "Albert Sans", sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 28px;
+  color: #1f1e1e;
+  text-align: center;
+}
+
+/* Figma 177:646 — default: outline + dark text; hover: fill + cream text */
+.form-survey-start {
+  padding: 12px 24px;
+  min-width: 101px;
+  box-sizing: border-box;
+  border: 1px solid #1f1e1e;
+  border-radius: 20px;
+  background-color: #F3D52A;
+  color: #1f1e1e;
+  font-family: "Albert Sans", sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 28px;
+  text-align: center;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.15s ease;
+}
+
+.form-survey-start:hover {
+  background-color: #1f1e1e;
+  color: #fffeec;
+  border-color: #1f1e1e;
+}
+
+.form-survey-start:focus-visible {
+  outline: 2px solid #1f1e1e;
+  outline-offset: 3px;
+}
+
+.form-survey-start:active {
+  transform: scale(0.98);
+}
+
+.form-survey-card[hidden] {
+  display: none !important;
+}
+
+/* Figma 120:641 — progress tracker */
+.form-flow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  max-width: min(1107px, 100%);
+  margin-top: 10px;
+  pointer-events: auto;
+}
+
+.form-flow[hidden] {
+  display: none !important;
+}
+
+.progress-tracker {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  max-width: min(1100px, 100%);
+  box-sizing: border-box;
+  padding: 5px 50px;
+  background-color: #fffeec;
+  border: 1px solid #1f1e1e;
+  border-radius: 20px;
+}
+
+.progress-tracker-icon {
+  display: block;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.progress-tracker-icon--start {
+  width: 73.86px;
+  height: 60.1px;
+}
+
+.progress-tracker-icon--end {
+  width: 64.67px;
+  height: 64.67px;
+}
+
+.progress-tracker-middle {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.progress-tracker-track {
+  position: relative;
+  width: 100%;
+  height: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.progress-tracker-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 4px;
+  background-color: #cbcaca;
+  border-radius: 2px;
+}
+
+.progress-tracker-fill {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: var(--progress-pct, 5%);
+  height: 4px;
+  background-color: #1f1e1e;
+  border-radius: 2px;
+  z-index: 1;
+}
+
+.progress-tracker-stop {
+  position: absolute;
+  left: var(--progress-pct, 5%);
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  background-color: #1f1e1e;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+/* Figma 125:745 — question box (semantic form + fieldset / radio group) */
+form.question-box {
+  width: 100%;
+  max-width: min(1107px, 100%);
+  box-sizing: border-box;
+  padding: 20px 69px 65px 45px;
+  background-color: #fffeec;
+  border: 2px solid #1f1e1e;
+  border-radius: 30px;
+  box-shadow: 4px 4px 0 0 #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+form.question-box[hidden] {
+  display: none !important;
+}
+
+.question-fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* <legend> breaks flex gap in most browsers — margin on options/slider matches this */
+  gap: 50px;
+}
+
+.question-fieldset > .question-box-options {
+  margin-top: 50px;
+}
+
+.question-fieldset--slider > .question-slider-block {
+  margin-top: 50px;
+}
+
+.question-fieldset > .question-box-title {
+  float: none;
+  display: block;
+  width: 100%;
+  max-width: none;
+  align-self: stretch;
+  padding: 0;
+}
+
+.question-box-number {
+  margin: 0;
+  font-family: "Beau Rivage", cursive;
+  font-weight: 400;
+  font-size: clamp(72px, 14vw, 136px);
+  line-height: 1;
+  color: #1f1e1e;
+  text-align: center;
+}
+
+.question-box-body {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.question-box-title {
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 48px;
+  text-align: center;
+  color: #1f1e1e;
+  font-family: "Albert Sans", sans-serif;
+}
+
+.question-box-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem 0;
+  width: 100%;
+}
+
+.question-box-options--single {
+  justify-content: center;
+}
+
+.question-option {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  min-height: 73px;
+  box-sizing: border-box;
+  cursor: pointer;
+  flex: 0 1 auto;
+  max-width: 281px;
+}
+
+.question-option input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  margin: 0;
+}
+
+.question-option-ring {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+  border: 2px solid #1f1e1e;
+  border-radius: 50%;
+  box-sizing: border-box;
+  background-color: transparent;
+}
+
+.question-option input:checked + .question-option-ring {
+  background-color: #1f1e1e;
+  box-shadow: inset 0 0 0 4px #fffeec;
+}
+
+.question-option-label {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #1f1e1e;
+}
+
+/* Figma 167:278 — two-line option labels */
+.question-option-label--stack {
+  line-height: 27px;
+}
+
+.question-option input:focus-visible + .question-option-ring {
+  outline: 2px solid #1f1e1e;
+  outline-offset: 3px;
+}
+
+/* Figma 167:222 / 183:1881 — 1–10 scale slider */
+.question-slider-block {
+  width: 100%;
+  max-width: 767px;
+  margin: 0 auto;
+  padding-top: 8px;
+}
+
+/* Figma 183:1960 — analog vs digital slider + end icons */
+.question-slider-block--icons {
+  max-width: min(940px, 100%);
+}
+
+.question-slider-row--icons {
+  gap: 5px;
+  justify-content: center;
+  min-height: 61px;
+}
+
+.question-slider-icon--analog {
+  width: 88px;
+  height: 88px;
+  object-fit: contain;
+  flex-shrink: 0;
+  display: block;
+}
+
+.question-slider-icon--digital {
+  width: 68px;
+  height: auto;
+  max-height: 91px;
+  aspect-ratio: 68 / 91;
+  object-fit: contain;
+  flex-shrink: 0;
+  display: block;
+}
+
+.question-slider-row--icons .question-slider-track-wrap {
+  flex: 1 1 auto;
+  max-width: 767px;
+  min-width: 120px;
+}
+
+.question-slider-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+}
+
+.question-slider-cap {
+  flex-shrink: 0;
+  font-family: "Albert Sans", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 48px;
+  color: #1f1e1e;
+  text-align: center;
+  min-width: 1.5ch;
+}
+
+.question-slider-track-wrap {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  height: 22px;
+}
+
+.question-slider-input {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 22px;
+  margin: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.question-slider-input::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(
+    to right,
+    #1f1e1e 0%,
+    #1f1e1e var(--range-fill, 44.444%),
+    #cbcaca var(--range-fill, 44.444%),
+    #cbcaca 100%
+  );
+}
+
+.question-slider-input:focus {
+  outline: none;
+}
+
+.question-slider-input:focus-visible {
+  outline: 2px solid #1f1e1e;
+  outline-offset: 6px;
+}
+
+.question-slider-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #fffeec;
+  border: 2px solid #1f1e1e;
+  box-sizing: border-box;
+  cursor: grab;
+}
+
+.question-slider-input::-webkit-slider-thumb:active {
+  cursor: grabbing;
+}
+
+.question-slider-input::-moz-range-track {
+  height: 4px;
+  background: #cbcaca;
+  border-radius: 2px;
+}
+
+.question-slider-input::-moz-range-progress {
+  height: 4px;
+  background: #1f1e1e;
+  border-radius: 2px;
+}
+
+.question-slider-input::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #1f1e1e;
+  border-radius: 50%;
+  background-color: #fffeec;
+  box-sizing: border-box;
+  cursor: grab;
+}
+
+.question-slider-input::-moz-range-thumb:active {
+  cursor: grabbing;
+}
+
+.question-box-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 952px;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Figma 183:2000 — step 8 date/place inputs */
+.question-fieldset--step8 {
+  gap: 24px;
+}
+
+.question-box-subtitle {
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
+  font-family: "Albert Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  color: #1f1e1e;
+}
+
+.question-step8-inputs {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 8px;
+}
+
+.question-step8-input {
+  width: min(272px, 100%);
+  min-height: 48px;
+  box-sizing: border-box;
+  padding: 12px 16px;
+  border: 1px solid #1f1e1e;
+  border-radius: 8px;
+  background-color: #fffeec;
+  font-family: "Albert Sans", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #1f1e1e;
+}
+
+.question-step8-input::placeholder {
+  color: #b3b3b3;
+}
+
+.question-step8-input:focus-visible {
+  outline: 2px solid #1f1e1e;
+  outline-offset: 2px;
+}
+
+.question-step8-input--date {
+  color: #b3b3b3;
+}
+
+.question-step8-input--date::-webkit-datetime-edit {
+  color: #b3b3b3;
+}
+
+.question-step8-input--date::-webkit-calendar-picker-indicator {
+  opacity: 0.55;
+}
+
+.question-step8-input--date:focus-visible::-webkit-calendar-picker-indicator {
+  opacity: 0.75;
+}
+
+.question-box-nav--step8 {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.question-box-nav--step8 .form-flow-btn:first-child {
+  justify-self: start;
+}
+
+.question-box-nav--step8 .form-flow-btn:last-child {
+  justify-self: end;
+}
+
+.form-flow-btn--delayed {
+  justify-self: center;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.form-flow-btn--delayed.is-visible {
+  opacity: 1;
+}
+
+/* Figma 177:646 — back / next */
+.form-flow-btn {
+  padding: 2px 20px;
+  min-height: 52px;
+  box-sizing: border-box;
+  border: 1px solid #1f1e1e;
+  border-radius: 10px;
+  background-color: transparent;
+  color: #1f1e1e;
+  font-family: "Albert Sans", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 48px;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.form-flow-btn:hover {
+  background-color: #1f1e1e;
+  color: #fffeec;
+  border-color: #1f1e1e;
+}
+
+.form-flow-btn:focus-visible {
+  outline: 2px solid #1f1e1e;
+  outline-offset: 3px;
+}
+
+/* Figma 153:15 — sign-up modal (centered above survey) */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.signup-popup-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 1.25rem;
+  background-color: rgba(31, 30, 30, 0.35);
+  pointer-events: auto;
+  border: 1px solid #1f1e1e;
+}
+
+.signup-popup-overlay[hidden] {
+  display: none !important;
+}
+
+.signup-popup {
+  position: relative;
+  width: min(640px, 100%);
+  box-sizing: border-box;
+  padding: 50px 55px 55px;
+  background-color: #F3D52A;
+  border: 1px solid #1f1e1e;
+  border-radius: 30px;
+  box-shadow: 4px 4px 0 0 #1f1e1e;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 27px;
+}
+
+.signup-popup-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: opacity 0.15s ease;
+}
+
+.signup-popup-close:hover {
+  opacity: 0.85;
+}
+
+.signup-popup-close:focus-visible {
+  outline: 2px solid #1f1e1e;
+  outline-offset: 2px;
+}
+
+.signup-popup-title {
+  margin: 0;
+  font-family: "Albert Sans", sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #1f1e1e;
+  text-align: center;
+}
+
+.signup-popup-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 27px;
+}
+
+.signup-popup-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: center;
+  gap: 13px;
+}
+
+.signup-popup-email-wrap {
+  flex: 1 1 180px;
+  min-width: 0;
+  display: flex;
+  align-items: stretch;
+}
+
+.signup-popup-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 14px;
+  border: 1px solid #1f1e1e;
+  border-radius: 0;
+  background-color: #fff;
+  font-family: "Albert Sans", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #1f1e1e;
+}
+
+.signup-popup-input::placeholder {
+  color: #d5d5d5;
+}
+
+.signup-popup-input:focus {
+  outline: 2px solid #1f1e1e;
+  outline-offset: 2px;
+}
+
+.signup-popup-submit {
+  flex: 0 0 auto;
+  min-width: 129px;
+  padding: 10px 16px;
+  box-sizing: border-box;
+  border: 1px solid #1f1e1e;
+  border-radius: 20px;
+  background-color: #1f1e1e;
+  color: #fffeec;
+  font-family: "Albert Sans", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.2;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.signup-popup-submit:hover {
+  background-color: #3a3939;
+  border-color: #3a3939;
+}
+
+.signup-popup-submit:focus-visible {
+  outline: 2px solid #1f1e1e;
+  outline-offset: 3px;
+}
+
+.signup-popup-checkbox-row {
+  width: 100%;
+  max-width: 536px;
+  align-self: flex-start;
+}
+
+.signup-popup-checkbox-label {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding-left: 34px;
+  cursor: pointer;
+  font-family: "Albert Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.35;
+  color: #444;
+}
+
+.signup-popup-checkbox-input {
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.signup-popup-checkbox-ui {
+  position: absolute;
+  left: 0;
+  top: 2px;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  box-sizing: border-box;
+  border: 1px solid #1f1e1e;
+  border-radius: 2px;
+  background-color: #fffeec;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.signup-popup-checkbox-input:checked + .signup-popup-checkbox-ui {
+  background-color: #1f1e1e;
+  border-color: #1f1e1e;
+}
+
+.signup-popup-checkbox-input:checked + .signup-popup-checkbox-ui::after {
+  content: "";
+  width: 6px;
+  height: 10px;
+  border: solid #fffeec;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg) translate(-1px, -1px);
+  margin-bottom: 2px;
+}
+
+.signup-popup-checkbox-input:focus-visible + .signup-popup-checkbox-ui {
+  outline: 2px solid #1f1e1e;
+  outline-offset: 2px;
+}
+
+.signup-popup-checkbox-text {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* Figma 205:586 / 205:587 — cookie trays (slide up from bottom) */
+.cookie-box-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 1rem 1.5rem;
+  pointer-events: none;
+}
+
+.cookie-box-overlay:not([hidden]) {
+  pointer-events: auto;
+}
+
+.cookie-box-overlay[hidden] {
+  display: none !important;
+}
+
+.cookie-box-backdrop {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(31, 30, 30, 0.28);
+}
+
+.cookie-box-shell {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: min(520px, 100%);
+  transform: translateY(calc(100% + 24px));
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.cookie-box-overlay.is-open .cookie-box-shell {
+  transform: translateY(0);
+}
+
+.cookie-box {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 30px 40px;
+  background-color: #fffeec;
+  border: 1px solid #1f1e1e;
+  border-radius: 30px;
+  box-shadow: 4px 4px 0 0 #1f1e1e;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 20px;
+}
+
+.cookie-tray {
+  width: 100%;
+  height: 271px;
+  box-sizing: border-box;
+  border: 1px solid #1f1e1e;
+  border-radius: 30px;
+  overflow: hidden;
+  position: relative;
+  background-color: #fffeec;
+}
+
+.cookie-tray-grid {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 14px 24px 18px;
+  gap: 10px 12px;
+  align-items: center;
+  justify-items: center;
+}
+
+.cookie-tray-grid--six {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.cookie-tray-grid--five {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.cookie-tray-grid-spacer {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.cookie-tray-cookie {
+  width: min(127px, 100%);
+  height: auto;
+  max-height: 127px;
+  object-fit: contain;
+  display: block;
+}
+
+.cookie-box-copy {
+  margin: 0;
+  font-family: "Albert Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.45;
+  color: #1f1e1e;
+}
+
+.cookie-box-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+}
+
+.cookie-box-btn {
+  padding: 12px 24px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  border: 1px solid #1f1e1e;
+  font-family: "Albert Sans", sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 28px;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.12s ease;
+}
+
+.cookie-box-btn--accept {
+  background-color: #f3d52a;
+  color: #1f1e1e;
+}
+
+.cookie-box-btn--accept:hover {
+  filter: brightness(1.03);
+}
+
+.cookie-box-btn--outline {
+  background-color: transparent;
+  color: #1f1e1e;
+}
+
+.cookie-box-btn--outline:hover {
+  background-color: #1f1e1e;
+  color: #fffeec;
+}
+
+.cookie-box-btn:focus-visible {
+  outline: 2px solid #1f1e1e;
+  outline-offset: 3px;
+}
+
+.cookie-box-btn:active {
+  transform: scale(0.98);
+}
