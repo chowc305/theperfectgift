@@ -1,6 +1,18 @@
 (function () {
   var BOX = "imgs/box.png";
   var GIFT = "imgs/gift.png";
+  var STORAGE_VERSION_KEY = "perfectGiftCartStorageVersion";
+  var STORAGE_VERSION = "3";
+
+  /* One-time reset: older builds wrote cart keys from quiz logic, not real add-to-cart. */
+  try {
+    if (localStorage.getItem(STORAGE_VERSION_KEY) !== STORAGE_VERSION) {
+      localStorage.setItem(STORAGE_VERSION_KEY, STORAGE_VERSION);
+      localStorage.removeItem("perfectGiftCartHasItems");
+      localStorage.removeItem("perfectGiftCartCount");
+      localStorage.removeItem("perfectGiftCartVariant");
+    }
+  } catch (e) {}
 
   function syncFaviconFromCart() {
     var gift = false;

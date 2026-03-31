@@ -324,74 +324,38 @@
             return;
         }
 
-        let showBadge = false;
-
-        const landscapeForm = document.getElementById("surveyStep6Form");
-        if (landscapeForm) {
-            const checked = landscapeForm.querySelector('input[name="landscape"]:checked');
-            const v = checked ? checked.value : "";
-            if (v === "mountain" || v === "cityscape") {
-                showBadge = true;
-            }
-        }
-
-        if (step5Form) {
-            const hs = step5Form.querySelector('input[name="home-sense"]:checked');
-            if (hs && hs.value === "visual-aesthetic") {
-                showBadge = true;
-            }
-        }
-
-        if (importanceScale) {
-            const n = Number(importanceScale.value);
-            if (!Number.isNaN(n) && n > 5) {
-                showBadge = true;
-            }
-        }
-        const badgeEl = document.querySelector(".header-cart-add1-badge");
-        if (showBadge) {
-            defaultImg.setAttribute("hidden", "");
-            add1.removeAttribute("hidden");
-            add1.setAttribute("aria-hidden", "false");
-            let n = 1;
+        let count = 0;
+        try {
+            count = parseInt(localStorage.getItem("perfectGiftCartCount"), 10) || 0;
+        } catch (e) {}
+        if (count === 0) {
             try {
-                n = parseInt(localStorage.getItem("perfectGiftCartCount"), 10) || 0;
-            } catch (e) {}
-            if (n < 1) n = 1;
-            if (n > 2) n = 2;
-            if (badgeEl) badgeEl.textContent = String(n);
-        } else {
+                if (localStorage.getItem("perfectGiftCartHasItems") === "1") {
+                    count = 1;
+                }
+            } catch (e2) {}
+        }
+        count = Math.min(Math.max(count, 0), 2);
+
+        const badgeEl = document.querySelector(".header-cart-add1-badge");
+        if (count < 1) {
             defaultImg.removeAttribute("hidden");
             add1.setAttribute("hidden", "");
             add1.setAttribute("aria-hidden", "true");
             if (badgeEl) badgeEl.textContent = "1";
-        }
-        if (headerCart) {
-            if (showBadge) {
-                headerCart.setAttribute("title", tipAdded);
-                headerCart.setAttribute("aria-label", tipAdded);
-            } else {
+            if (headerCart) {
                 headerCart.setAttribute("title", tipEmpty);
                 headerCart.setAttribute("aria-label", tipEmpty);
             }
-        }
-        try {
-            if (showBadge) {
-                localStorage.setItem("perfectGiftCartHasItems", "1");
-                var existing = 0;
-                try {
-                    existing = parseInt(localStorage.getItem("perfectGiftCartCount"), 10) || 0;
-                } catch (e2) {}
-                if (existing < 1) {
-                    localStorage.setItem("perfectGiftCartCount", "1");
-                }
-            } else {
-                localStorage.removeItem("perfectGiftCartHasItems");
-                localStorage.removeItem("perfectGiftCartCount");
-                localStorage.removeItem("perfectGiftCartVariant");
+        } else {
+            defaultImg.setAttribute("hidden", "");
+            add1.removeAttribute("hidden");
+            add1.setAttribute("aria-hidden", "false");
+            if (badgeEl) badgeEl.textContent = String(count);
+            if (headerCart) {
+                headerCart.setAttribute("title", tipAdded);
+                headerCart.setAttribute("aria-label", tipAdded);
             }
-        } catch (e) {
-            /* ignore */
         }
         if (typeof window.syncFaviconFromCart === "function") {
             window.syncFaviconFromCart();
@@ -530,7 +494,6 @@
     if (importanceScale) {
         importanceScale.addEventListener("input", function () {
             syncRangeVisual(importanceScale);
-            updateHeaderCart();
         });
         syncRangeVisual(importanceScale);
     }
@@ -638,20 +601,6 @@
             e.preventDefault();
             if (!step2Form.reportValidity()) return;
             showStep(3);
-        });
-    }
-
-    if (step6Form) {
-        step6Form.addEventListener("change", function (e) {
-            const t = e.target;
-            if (t && t.name === "landscape") updateHeaderCart();
-        });
-    }
-
-    if (step5Form) {
-        step5Form.addEventListener("change", function (e) {
-            const t = e.target;
-            if (t && t.name === "home-sense") updateHeaderCart();
         });
     }
 

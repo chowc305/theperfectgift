@@ -93,6 +93,11 @@ body.form-bg--sky .header {
   display: none !important;
 }
 
+#headerCartAdd1[hidden] {
+  display: none !important;
+  visibility: hidden;
+}
+
 .header-cart-add1-img {
   position: relative;
   z-index: 0;

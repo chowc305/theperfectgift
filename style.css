@@ -12,17 +12,90 @@ body{
   overflow-x: hidden;
 }
 
-.header{
-  display:flex;
+.header {
+  position: relative;
+  z-index: 20;
+  display: flex;
   justify-content: space-between;
-padding-left: 2em;
-padding-right: 2em;
-align-items: center;
+  padding-left: 2em;
+  padding-right: 2em;
+  align-items: center;
+  background-color: #fffeec;
 }
 
-.header img{
+.header-cart {
+  position: relative;
+  width: 49px;
+  height: 54px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.header-cart-img--default {
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  display: block;
   width: 45px;
   height: 50px;
+}
+
+.header-cart-img--default[hidden] {
+  display: none !important;
+}
+
+.header-cart-add1 {
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  width: 45px;
+  height: 50px;
+}
+
+.header-cart-add1[hidden] {
+  display: none !important;
+}
+
+#headerCartAdd1[hidden] {
+  display: none !important;
+  visibility: hidden;
+}
+
+.header-cart-add1-img {
+  position: relative;
+  z-index: 0;
+  display: block;
+  width: 45px;
+  height: 50px;
+  object-fit: contain;
+  object-position: center;
+}
+
+.header-cart-add1-badge {
+  position: absolute;
+  z-index: 1;
+  right: -2px;
+  bottom: 2px;
+  width: 22px;
+  height: 22px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  background-color: #f3d52a;
+  border: 1px solid #1f1e1e;
+  font-family: "Albert Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  text-align: center;
+  color: #1f1e1e;
+  padding-top: 1px;
+}
+
+.header-cart > img,
+.header-cart > div,
+.header-cart-add1 > img,
+.header-cart-add1 > span {
+  pointer-events: none;
 }
 
 .header h1 {
