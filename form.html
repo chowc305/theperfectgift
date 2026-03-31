@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find the Perfect Gift! — Form</title>
+  <link rel="stylesheet" href="form.css">
+  <script src="favicon-cart.js" defer></script>
+  <script src="giftresults-randomizer.js" defer></script>
+  <script src="form.js" defer></script>
+  <script src="header-cart-nav.js" defer></script>
+</head>
+<body>
+
+<div class="header">
+  <h1><a class="header-title-link" href="index.html">The Perfect Gift</a></h1>
+  <div class="header-cart" id="headerCart" role="img" title="empty" aria-label="empty">
+    <img
+      class="header-cart-img header-cart-img--default"
+      id="headerCartDefault"
+      src="imgs/cart.svg"
+      alt=""
+      width="45"
+      height="50"
+    >
+    <div
+      class="header-cart-add1"
+      id="headerCartAdd1"
+      data-node-id="207:630"
+      hidden
+      aria-hidden="true"
+    >
+      <img
+        class="header-cart-add1-img"
+        src="imgs/cart.svg"
+        alt=""
+        width="45"
+        height="50"
+      >
+      <span class="header-cart-add1-badge">1</span>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="grid-container"></div>
+  <div class="form-survey-wrap" id="formSurveyWrap">
+    <section class="form-survey-card" id="formSurveyIntro" data-node-id="157:136" aria-labelledby="form-survey-heading">
+      <div class="form-survey-inner" data-node-id="157:135">
+        <div class="form-survey-heading-row" data-node-id="157:131">
+          <h2 id="form-survey-heading" class="form-survey-heading" data-node-id="157:130">
+            Take our survey to find the perfect gift for your loved one
+          </h2>
+        </div>
+        <button type="button" class="form-survey-start" id="formSurveyStart" data-node-id="157:132" aria-label="Start survey">Start</button>
+      </div>
+    </section>
+
+    <div class="form-flow" id="formFlow" hidden aria-hidden="true">
+      <div class="progress-tracker" data-node-id="120:641" role="img" aria-label="Survey progress, step 1 of several" id="progressTracker">
+        <img class="progress-tracker-icon progress-tracker-icon--start" src="imgs/progress-box.png" alt="" width="74" height="60">
+        <div class="progress-tracker-middle">
+          <div class="progress-tracker-track" id="progressTrackerTrack" style="--progress-pct: 5%">
+            <div class="progress-tracker-line" aria-hidden="true"></div>
+            <div class="progress-tracker-fill"></div>
+            <span class="progress-tracker-stop" aria-hidden="true"></span>
+          </div>
+        </div>
+        <img class="progress-tracker-icon progress-tracker-icon--end" src="imgs/progress-gift.png" alt="" width="65" height="65">
+      </div>
+
+      <form class="question-box" id="surveyStep1Form" action="#" method="get" data-node-id="125:745" aria-labelledby="question-1-title" data-step="1">
+        <p class="question-box-number" aria-hidden="true">1.</p>
+        <div class="question-box-body">
+          <fieldset class="question-fieldset">
+            <legend class="question-box-title" id="question-1-title">Who are you shopping for today?</legend>
+            <div class="question-box-options">
+              <label class="question-option">
+                <input type="radio" name="shopping-for" value="family" required>
+                <span class="question-option-ring" aria-hidden="true"></span>
+                <span class="question-option-label">family</span>
+              </label>
+              <label class="question-option">
+                <input type="radio" name="shopping-for" value="partner">
+                <span class="question-option-ring" aria-hidden="true"></span>
+                <span class="question-option-label">partner</span>
+              </label>
+              <label class="question-option">
+                <input type="radio" name="shopping-for" value="friend">
+                <span class="question-option-ring" aria-hidden="true"></span>
+                <span class="question-option-label">friend</span>
+              </label>
+              <label class="question-option">
+                <input type="radio" name="shopping-for" value="other">
+                <span class="question-option-ring" aria-hidden="true"></span>
+                <span class="question-option-label">other</span>
+              </label>
+            </div>
+          </fieldset>
+        </div>
+        <div class="question-box-nav">
+          <button type="button" class="form-flow-btn">back</button>
+          <button type="submit" class="form-flow-btn">next</button>
+        </div>
+      </form>
+
+      <form class="question-box" id="surveyStep2Form" action="#" method="get" data-node-id="167:179" aria-labelledby="question-2-title" data-step="2" hidden>
+        <p class="question-box-number" aria-hidden="true">2.</p>
+        <div class="question-box-body">
+          <fieldset class="question-fieldset">
+            <legend class="question-box-title" id="question-2-title">What is the occasion?</legend>
+            <div class="question-box-options">
+              <label class="question-option">
+                <input type="radio" name="occasion" value="birthday" required>
+                <span class="question-option-ring" aria-hidden="true"></span>
+                <span class="question-option-label">birthday</span>
+              </label>
+              <label class="question-option">
+                <input type="radio" name="occasion" value="anniversary">
+                <span class="question-option-ring" aria-hidden="true"></span>
+                <span class="question-option-label">anniversary</span>
+              </label>
+              <label class="question-option">
+                <input type="radio" name="occasion" value="valentines">
+                <span class="question-option-ring" aria-hidden="true"></span>
+                <span class="question-option-label">valentine’s day</span>
+              </label>
+              <label class="question-option">
+                <input type="radio" name="occasion" value="just-because">
+                <span class="question-option-ring" aria-hidden="true"></span>
+                <span class="question-option-label">just because</span>
+              </label>
+            </div>
+          </fieldset>
+        </div>
+        <div class="question-box-nav">
+          <button type="button" class="form-flow-btn" data-action="back-step">back</button>
+          <button type="submit" class="form-flow-btn">next</button>
+        </div>
+      </form>
+
+      <form class="question-box" id="surveyStep3Form" action="#" method="get" data-node-id="167:222" aria-labelledby="question-3-title" data-step="3" hidden>
+        <p class="question-box-number" aria-hidden="true">3.</p>
+        <div class="question-box-body">
+          <fieldset class="question-fieldset question-fieldset--slider">
+            <legend class="question-box-title" id="question-3-title">On a scale of 1–10, how much does this person mean to you?</legend>
+            <div class="question-slider-block" data-node-id="183:1881">
+              <div class="question-slider-row">
+                <span class="question-slider-cap" aria-hidden="true">1</span>
+                <div class="question-slider-track-wrap">
+                  <input
+                    type="range"
+                    id="importanceScale"
+                    name="importance"
+                    class="question-slider-input"
+                    min="1"
+                    max="10"
+                    value="5"
+                    step="1"
+                    aria-labelledby="question-3-title"
+                  >
+                </div>
+                <span class="question-slider-cap" aria-hidden="true">10</span>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <div class="question-box-nav">
+          <button type="button" class="form-flow-btn" data-action="back-step">back</button>
+          <button type="submit" class="form-flow-btn">next</button>
+        </div>
+      </form>
+
+      <form class="question-box" id="surveyStep4Form" action="#" method="get" data-node-id="167:278" aria-labelledby="question-4-title" data-step="4" hidden>
+        <p class="question-box-number" aria-hidden="true">4.</p>
+        <div class="question-box-body">
+          <fieldset class="question-fieldset">
+            <legend class="question-box-title" id="question-4-title">What is the primary &quot;Love Language&quot; of your special person?</legend>
+            <div class="question-box-options">
+              <label class="question-option">
+                <input type="radio" name="love-language" value="words-of-affirmation" required>
+                <span class="question-option-ring" aria-hidden="true"></span>
+                <span class="question-option-label question-option-label--stack">words of<br>affirmation</span>
+              </label>
+              <label class="question-option">
+                <input type="radio" name="love-language" value="acts-of-service">
+                <span class="question-option-ring" aria-hidden="true"></span>
+                <span class="question-option-label question-option-label--stack">acts of<br>service</span>
+              </label>
+              <label class="question-option">
+                <input type="radio" name="love-language" value="quality-time">
+                <span class="question-option-ring" aria-hidden="true"></span>
+                <span class="question-option-label">quality time</span>
+              </label>
+              <label class="question-option">
+                <input type="radio" name="love-language" value="physical-touch">
+                <span class="question-option-ring" aria-hidden="true"></span>
+                <span class="question-option-label">physical touch</span>
+              </label>
+            </div>
+          </fieldset>
+        </div>
+        <div class="question-box-nav">
+          <button type="button" class="form-flow-btn" data-action="back-step">back</button>
+          <button type="submit" class="form-flow-btn">next</button>
+        </div>
+      </form>
+
+      <form class="question-box" id="surveyStep5Form" action="#" method="get" data-node-id="167:334" aria-labelledby="question-5-title" data-step="5" hidden>
+        <p class="question-box-number" aria-hidden="true">5.</p>
+        <div class="question-box-body">
+          <fieldset class="question-fieldset">
+            <legend class="question-box-title" id="question-5-title">In their home, which sense do they prioritize most?</legend>
+            <div class="question-box-options">
+              <label class="question-option">
+                <input type="radio" name="home-sense" value="visual-aesthetic" required>
+                <span class="question-option-ring" aria-hidden="true"></span>
+                <span class="question-option-label">visual aesthetic</span>
+              </label>
+              <label class="question-option">
+                <input type="radio" name="home-sense" value="scents-candles">
+                <span class="question-option-ring" aria-hidden="true"></span>
+                <span class="question-option-label">scents/candles</span>
+              </label>
+              <label class="question-option">
+                <input type="radio" name="home-sense" value="comfort">
+                <span class="question-option-ring" aria-hidden="true"></span>
+                <span class="question-option-label">comfort</span>
+              </label>
+              <label class="question-option">
+                <input type="radio" name="home-sense" value="ambiance">
+                <span class="question-option-ring" aria-hidden="true"></span>
+                <span class="question-option-label">ambiance</span>
+              </label>
+            </div>
+          </fieldset>
+        </div>
+        <div class="question-box-nav">
+          <button type="button" class="form-flow-btn" data-action="back-step">back</button>
+          <button type="submit" class="form-flow-btn">next</button>
+        </div>
+      </form>
+
+      <form class="question-box" id="surveyStep6Form" action="#" method="get" data-node-id="183:1920" aria-labelledby="question-6-title" data-step="6" hidden>
+        <p class="question-box-number" aria-hidden="true">6.</p>
+        <div class="question-box-body">
+          <fieldset class="question-fieldset">
+            <legend class="question-box-title" id="question-6-title">If they were a landscape, where would they be?</legend>
+            <div class="question-box-options">
+              <label class="question-option">
+                <input type="radio" name="landscape" value="forest" required>
+                <span class="question-option-ring" aria-hidden="true"></span>
+                <span class="question-option-label">forest</span>
+              </label>
+              <label class="question-option">
+                <input type="radio" name="landscape" value="cityscape">
+                <span class="question-option-ring" aria-hidden="true"></span>
+                <span class="question-option-label">cityscape</span>
+              </label>
+              <label class="question-option">
+                <input type="radio" name="landscape" value="beach">
+                <span class="question-option-ring" aria-hidden="true"></span>
+                <span class="question-option-label">beach</span>
+              </label>
+              <label class="question-option">
+                <input type="radio" name="landscape" value="mountain">
+                <span class="question-option-ring" aria-hidden="true"></span>
+                <span class="question-option-label">mountain</span>
+              </label>
+            </div>
+          </fieldset>
+        </div>
+        <div class="question-box-nav">
+          <button type="button" class="form-flow-btn" data-action="back-step">back</button>
+          <button type="submit" class="form-flow-btn">next</button>
+        </div>
+      </form>
+
+      <form class="question-box" id="surveyStep7Form" action="#" method="get" data-node-id="183:1960" aria-labelledby="question-7-title" data-step="7" hidden>
+        <p class="question-box-number" aria-hidden="true">7.</p>
+        <div class="question-box-body">
+          <fieldset class="question-fieldset question-fieldset--slider">
+            <legend class="question-box-title" id="question-7-title">Do they prefer analog charm or digital seamlessness?</legend>
+            <div class="question-slider-block question-slider-block--icons" data-node-id="184:2484">
+              <div class="question-slider-row question-slider-row--icons">
+                <img class="question-slider-icon question-slider-icon--analog" src="imgs/record-player.png" alt="" width="88" height="88" data-node-id="184:2485">
+                <div class="question-slider-track-wrap">
+                  <input
+                    type="range"
+                    id="analogDigitalScale"
+                    name="analog-digital"
+                    class="question-slider-input"
+                    min="1"
+                    max="10"
+                    value="5"
+                    step="1"
+                    aria-labelledby="question-7-title"
+                  >
+                </div>
+                <img class="question-slider-icon question-slider-icon--digital" src="imgs/headphones-green.png" alt="" width="68" height="91" data-node-id="184:2487">
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <div class="question-box-nav">
+          <button type="button" class="form-flow-btn" data-action="back-step">back</button>
+          <button type="submit" class="form-flow-btn">next</button>
+        </div>
+      </form>
+
+      <form class="question-box question-box--step8" id="surveyStep8Form" action="#" method="get" data-node-id="183:2000" aria-labelledby="question-8-title" data-step="8" hidden>
+        <p class="question-box-number" aria-hidden="true">8.</p>
+        <div class="question-box-body question-box-body--step8">
+          <fieldset class="question-fieldset question-fieldset--step8">
+            <legend class="question-box-title" id="question-8-title">Please specify their date and place of birth</legend>
+            <p class="question-box-subtitle" id="question-8-subtitle">(to calculate their zodiac sign and receive more personalized results)</p>
+            <div class="question-step8-inputs" data-node-id="208:647">
+              <input type="text" name="birth-city" class="question-step8-input" placeholder="City" aria-label="City">
+              <input type="date" name="birth-date" class="question-step8-input question-step8-input--date" aria-label="Date of birth">
+            </div>
+          </fieldset>
+        </div>
+        <div class="question-box-nav question-box-nav--step8">
+          <button type="button" class="form-flow-btn" data-action="back-step">back</button>
+          <button type="submit" class="form-flow-btn form-flow-btn--delayed" id="step8NextBtn" hidden aria-hidden="true">next</button>
+        </div>
+      </form>
+
+      <form class="question-box" id="surveyStep9Form" action="#" method="get" data-node-id="183:2034" aria-labelledby="question-9-title" data-step="9" hidden>
+        <p class="question-box-number" aria-hidden="true">9.</p>
+        <div class="question-box-body">
+          <fieldset class="question-fieldset">
+            <legend class="question-box-title" id="question-9-title">How often do they buy things online?</legend>
+            <div class="question-box-options">
+              <label class="question-option">
+                <input type="radio" name="online-buying" value="very-often" required>
+                <span class="question-option-ring" aria-hidden="true"></span>
+                <span class="question-option-label">very often</span>
+              </label>
+              <label class="question-option">
+                <input type="radio" name="online-buying" value="sometimes">
+                <span class="question-option-ring" aria-hidden="true"></span>
+                <span class="question-option-label">sometimes</span>
+              </label>
+              <label class="question-option">
+                <input type="radio" name="online-buying" value="rarely">
+                <span class="question-option-ring" aria-hidden="true"></span>
+                <span class="question-option-label">rarely</span>
+              </label>
+              <label class="question-option">
+                <input type="radio" name="online-buying" value="not-sure">
+                <span class="question-option-ring" aria-hidden="true"></span>
+                <span class="question-option-label">not sure</span>
+              </label>
+            </div>
+          </fieldset>
+        </div>
+        <div class="question-box-nav">
+          <button type="button" class="form-flow-btn" data-action="back-step">back</button>
+          <button type="submit" class="form-flow-btn">next</button>
+        </div>
+      </form>
+
+      <form class="question-box" id="surveyStep10Form" action="#" method="get" data-node-id="183:2074" aria-labelledby="question-10-title" data-step="10" hidden>
+        <p class="question-box-number" aria-hidden="true">10.</p>
+        <div class="question-box-body">
+          <fieldset class="question-fieldset">
+            <legend class="question-box-title" id="question-10-title">Do they already have too many things?</legend>
+            <div class="question-box-options">
+              <label class="question-option">
+                <input type="radio" name="too-many-things" value="yes" required>
+                <span class="question-option-ring" aria-hidden="true"></span>
+                <span class="question-option-label">yes</span>
+              </label>
+              <label class="question-option">
+                <input type="radio" name="too-many-things" value="probably">
+                <span class="question-option-ring" aria-hidden="true"></span>
+                <span class="question-option-label">probably</span>
+              </label>
+              <label class="question-option">
+                <input type="radio" name="too-many-things" value="no">
+                <span class="question-option-ring" aria-hidden="true"></span>
+                <span class="question-option-label">no</span>
+              </label>
+              <label class="question-option">
+                <input type="radio" name="too-many-things" value="not-sure">
+                <span class="question-option-ring" aria-hidden="true"></span>
+                <span class="question-option-label">not sure</span>
+              </label>
+            </div>
+          </fieldset>
+        </div>
+        <div class="question-box-nav">
+          <button type="button" class="form-flow-btn" data-action="back-step">back</button>
+          <button type="submit" class="form-flow-btn">next</button>
+        </div>
+      </form>
+
+      <form class="question-box" id="surveyStep11Form" action="#" method="get" data-node-id="183:2268" aria-labelledby="question-11-title" data-step="11" hidden>
+        <p class="question-box-number" aria-hidden="true">11.</p>
+        <div class="question-box-body">
+          <fieldset class="question-fieldset">
+            <legend class="question-box-title" id="question-11-title">Would they prefer something practical or meaningful?</legend>
+            <div class="question-box-options">
+              <label class="question-option">
+                <input type="radio" name="practical-vs-meaningful" value="practical" required>
+                <span class="question-option-ring" aria-hidden="true"></span>
+                <span class="question-option-label">practical</span>
+              </label>
+              <label class="question-option">
+                <input type="radio" name="practical-vs-meaningful" value="meaningful">
+                <span class="question-option-ring" aria-hidden="true"></span>
+                <span class="question-option-label">meaningful</span>
+              </label>
+              <label class="question-option">
+                <input type="radio" name="practical-vs-meaningful" value="both">
+                <span class="question-option-ring" aria-hidden="true"></span>
+                <span class="question-option-label">both</span>
+              </label>
+              <label class="question-option">
+                <input type="radio" name="practical-vs-meaningful" value="doesnt-matter">
+                <span class="question-option-ring" aria-hidden="true"></span>
+                <span class="question-option-label">doesn’t matter</span>
+              </label>
+            </div>
+          </fieldset>
+        </div>
+        <div class="question-box-nav">
+          <button type="button" class="form-flow-btn" data-action="back-step">back</button>
+          <button type="submit" class="form-flow-btn">next</button>
+        </div>
+      </form>
+
+      <form class="question-box" id="surveyStep12Form" action="#" method="get" data-node-id="183:2308" aria-labelledby="question-12-title" data-step="12" hidden>
+        <p class="question-box-number" aria-hidden="true">12.</p>
+        <div class="question-box-body">
+          <fieldset class="question-fieldset">
+            <legend class="question-box-title" id="question-12-title">We’ve adjusted some responses for better accuracy</legend>
+            <div class="question-box-options question-box-options--single">
+              <label class="question-option">
+                <input type="radio" name="accuracy-continue" value="continue" required>
+                <span class="question-option-ring" aria-hidden="true"></span>
+                <span class="question-option-label">continue</span>
+              </label>
+            </div>
+          </fieldset>
+        </div>
+        <div class="question-box-nav">
+          <button type="button" class="form-flow-btn" data-action="back-step">back</button>
+          <button type="submit" class="form-flow-btn">next</button>
+        </div>
+      </form>
+
+      <form class="question-box" id="surveyStep13Form" action="#" method="get" data-node-id="183:2422" aria-labelledby="question-13-title" data-step="13" hidden>
+        <p class="question-box-number" aria-hidden="true">13.</p>
+        <div class="question-box-body">
+          <fieldset class="question-fieldset">
+            <legend class="question-box-title" id="question-13-title">In their home, which sense do they prioritize most?</legend>
+            <div class="question-box-options">
+              <label class="question-option">
+                <input type="radio" name="home-sense-repeat" value="visual-aesthetic" required>
+                <span class="question-option-ring" aria-hidden="true"></span>
+                <span class="question-option-label">visual aesthetic</span>
+              </label>
+              <label class="question-option">
+                <input type="radio" name="home-sense-repeat" value="scents-candles">
+                <span class="question-option-ring" aria-hidden="true"></span>
+                <span class="question-option-label">scents/candles</span>
+              </label>
+              <label class="question-option">
+                <input type="radio" name="home-sense-repeat" value="comfort">
+                <span class="question-option-ring" aria-hidden="true"></span>
+                <span class="question-option-label">comfort</span>
+              </label>
+              <label class="question-option">
+                <input type="radio" name="home-sense-repeat" value="ambiance">
+                <span class="question-option-ring" aria-hidden="true"></span>
+                <span class="question-option-label">ambiance</span>
+              </label>
+            </div>
+          </fieldset>
+        </div>
+        <div class="question-box-nav">
+          <button type="button" class="form-flow-btn" data-action="back-step">back</button>
+          <button type="submit" class="form-flow-btn">next</button>
+        </div>
+      </form>
+
+      <form class="question-box" id="surveyStep14Form" action="#" method="get" data-node-id="183:2382" aria-labelledby="question-14-title" data-step="14" hidden>
+        <p class="question-box-number" aria-hidden="true">14.</p>
+        <div class="question-box-body">
+          <fieldset class="question-fieldset">
+            <legend class="question-box-title" id="question-14-title">Should we prioritize a more expensive gift?</legend>
+            <div class="question-box-options question-box-options--single">
+              <label class="question-option">
+                <input type="radio" name="expensive-priority" value="yes" required>
+                <span class="question-option-ring" aria-hidden="true"></span>
+                <span class="question-option-label">yes</span>
+              </label>
+              <label class="question-option">
+                <input type="radio" name="expensive-priority" value="no">
+                <span class="question-option-ring" aria-hidden="true"></span>
+                <span class="question-option-label">no</span>
+              </label>
+            </div>
+          </fieldset>
+        </div>
+        <div class="question-box-nav">
+          <button type="button" class="form-flow-btn" data-action="back-step">back</button>
+          <button type="submit" class="form-flow-btn" id="step14NextBtn">next</button>
+        </div>
+      </form>
+
+      <form class="question-box" id="surveyStep15Form" action="#" method="get" data-node-id="183:2348" aria-labelledby="question-15-title" data-step="15" hidden>
+        <p class="question-box-number" aria-hidden="true">15.</p>
+        <div class="question-box-body">
+          <fieldset class="question-fieldset question-fieldset--slider">
+            <legend class="question-box-title" id="question-15-title">On a scale of 1–10, how much does this person REALLY mean to you?</legend>
+            <div class="question-slider-block" data-node-id="183:2348">
+              <div class="question-slider-row">
+                <span class="question-slider-cap" aria-hidden="true">1</span>
+                <div class="question-slider-track-wrap">
+                  <input
+                    type="range"
+                    id="reallyMeanScale"
+                    name="really-mean"
+                    class="question-slider-input"
+                    min="1"
+                    max="10"
+                    value="5"
+                    step="1"
+                    aria-labelledby="question-15-title"
+                  >
+                </div>
+                <span class="question-slider-cap" aria-hidden="true">10</span>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <div class="question-box-nav">
+          <button type="button" class="form-flow-btn" data-action="back-step">back</button>
+          <button type="submit" class="form-flow-btn">finish</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Figma 153:15 — sign-up modal (shown on question 2) -->
+<div
+  class="signup-popup-overlay"
+  id="signupPopupOverlay"
+  hidden
+  aria-hidden="true"
+>
+  <div
+    class="signup-popup"
+    data-node-id="153:15"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="signup-popup-title"
+  >
+    <button
+      type="button"
+      class="signup-popup-close"
+      id="signupPopupClose"
+      aria-label="Close"
+    >
+      <img src="imgs/cancel.svg" alt="" width="24" height="24">
+    </button>
+    <h2 class="signup-popup-title" id="signup-popup-title" data-node-id="153:16">
+      Sign up to save your progress
+    </h2>
+    <form class="signup-popup-form" id="signupPopupForm" action="#" method="get">
+      <div class="signup-popup-row" data-node-id="153:271">
+        <label class="signup-popup-email-wrap" data-node-id="153:268">
+          <span class="visually-hidden">Email address</span>
+          <input
+            type="email"
+            name="signup-email"
+            id="signupEmail"
+            class="signup-popup-input"
+            placeholder="Enter your email address"
+            required
+            autocomplete="email"
+            data-node-id="153:17"
+          >
+        </label>
+        <button type="submit" class="signup-popup-submit" data-node-id="153:270">
+          <span data-node-id="153:269">Sign up</span>
+        </button>
+      </div>
+      <div class="signup-popup-checkbox-row" data-node-id="153:273">
+        <label class="signup-popup-checkbox-label">
+          <input
+            type="checkbox"
+            name="deals-opt-out"
+            class="signup-popup-checkbox-input"
+            checked
+            data-node-id="153:262"
+          >
+          <span class="signup-popup-checkbox-ui" aria-hidden="true"></span>
+          <span class="signup-popup-checkbox-text" data-node-id="153:272">
+            Check to subscribe and stay updated with new deals
+          </span>
+        </label>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Figma 205:586 — cookie tray (slides up on step 3 until Accept / Decline) -->
+<div
+  class="cookie-box-overlay"
+  id="cookieBox1Overlay"
+  hidden
+  aria-hidden="true"
+>
+  <div class="cookie-box-backdrop" aria-hidden="true"></div>
+  <div class="cookie-box-shell" id="cookieBox1Shell">
+    <div class="cookie-box cookie-box--1" data-node-id="205:586" role="dialog" aria-labelledby="cookie-box-1-title">
+      <div class="cookie-tray" data-node-id="205:580">
+        <div class="cookie-tray-grid cookie-tray-grid--six" aria-hidden="true">
+          <img class="cookie-tray-cookie" src="imgs/cookie.png" alt="" width="127" height="127">
+          <img class="cookie-tray-cookie" src="imgs/cookie.png" alt="" width="127" height="127">
+          <img class="cookie-tray-cookie" src="imgs/cookie.png" alt="" width="127" height="127">
+          <img class="cookie-tray-cookie" src="imgs/cookie.png" alt="" width="127" height="127">
+          <img class="cookie-tray-cookie" src="imgs/cookie.png" alt="" width="127" height="127">
+          <img class="cookie-tray-cookie" src="imgs/cookie.png" alt="" width="127" height="127">
+        </div>
+      </div>
+      <p class="cookie-box-copy" id="cookie-box-1-title" data-node-id="205:433">
+        Our freshly baked cookies allow us to provide you with a better website experience.
+      </p>
+      <div class="cookie-box-actions" data-node-id="205:583">
+        <button type="button" class="cookie-box-btn cookie-box-btn--accept" id="cookieAcceptBtn" data-node-id="205:440">
+          Accept
+        </button>
+        <button type="button" class="cookie-box-btn cookie-box-btn--outline" id="cookieDeclineBtn" data-node-id="205:444">
+          Decline
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Figma 205:587 — second cookie tray (step 6 if first cookie was declined) -->
+<div
+  class="cookie-box-overlay"
+  id="cookieBox2Overlay"
+  hidden
+  aria-hidden="true"
+>
+  <div class="cookie-box-backdrop" aria-hidden="true"></div>
+  <div class="cookie-box-shell" id="cookieBox2Shell">
+    <div class="cookie-box cookie-box--2" data-node-id="205:587" role="dialog" aria-labelledby="cookie-box-2-title">
+      <div class="cookie-tray" data-node-id="205:588">
+        <div class="cookie-tray-grid cookie-tray-grid--five" aria-hidden="true">
+          <img class="cookie-tray-cookie" src="imgs/cookie.png" alt="" width="127" height="127">
+          <img class="cookie-tray-cookie cookie-tray-cookie--bitten" src="imgs/cookie-bitten.png" alt="" width="127" height="127">
+          <span class="cookie-tray-grid-spacer"></span>
+          <img class="cookie-tray-cookie" src="imgs/cookie.png" alt="" width="127" height="127">
+          <img class="cookie-tray-cookie" src="imgs/cookie.png" alt="" width="127" height="127">
+          <img class="cookie-tray-cookie" src="imgs/cookie.png" alt="" width="127" height="127">
+        </div>
+      </div>
+      <p class="cookie-box-copy" id="cookie-box-2-title" data-node-id="205:603">
+        Our freshly baked cookies allow us to provide you with a better website experience….Are you sure you don’t want the best for your person?
+      </p>
+      <div class="cookie-box-actions" data-node-id="205:604">
+        <button type="button" class="cookie-box-btn cookie-box-btn--accept" id="cookieAllowFewBtn" data-node-id="205:605">
+          Allow a few bites
+        </button>
+        <button type="button" class="cookie-box-btn cookie-box-btn--outline" id="cookieDecline2Btn" data-node-id="205:606">
+          Decline
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

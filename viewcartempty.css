@@ -1,0 +1,300 @@
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+html {
+  overflow-x: hidden;
+  margin: 0;
+}
+
+body {
+  font-family: "Albert Sans", sans-serif;
+  font-optical-sizing: auto;
+  background-color: #fffeec;
+  color: #1f1e1e;
+  overflow-x: hidden;
+  margin: 0;
+}
+
+.header {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 2em;
+  padding-right: 2em;
+  align-items: center;
+  background-color: #fffeec;
+}
+
+.header-cart {
+  position: relative;
+  width: 49px;
+  height: 54px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.header-cart-img--default {
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  display: block;
+  width: 45px;
+  height: 50px;
+}
+
+.header-cart-img--default[hidden] {
+  display: none !important;
+}
+
+.header-cart-add1 {
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  width: 45px;
+  height: 50px;
+}
+
+.header-cart-add1[hidden] {
+  display: none !important;
+}
+
+.header-cart-add1-img {
+  position: relative;
+  z-index: 0;
+  display: block;
+  width: 45px;
+  height: 50px;
+  object-fit: contain;
+  object-position: center;
+}
+
+.header-cart-add1-badge {
+  position: absolute;
+  z-index: 1;
+  right: -2px;
+  bottom: 2px;
+  width: 22px;
+  height: 22px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  background-color: #f3d52a;
+  border: 1px solid #1f1e1e;
+  font-family: "Albert Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  text-align: center;
+  color: #1f1e1e;
+  padding-top: 1px;
+}
+
+.header-cart > img,
+.header-cart > div,
+.header-cart-add1 > img,
+.header-cart-add1 > span {
+  pointer-events: none;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.header-title-link {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.header-title-link:hover {
+  opacity: 0.85;
+}
+
+.header-title-link:focus-visible {
+  outline: 2px solid #1f1e1e;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+.content {
+  position: relative;
+  width: 100%;
+}
+
+.grid-container {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  height: 900px;
+  background-size: 50px 50px;
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+  background-color: #fffeec;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Figma 208:752 — empty cart (overlays grid like gift results) */
+.viewcart-empty-page {
+  position: relative;
+  z-index: 10;
+  margin-top: -900px;
+  width: 100%;
+  box-sizing: border-box;
+  padding-bottom: 0;
+  min-height: auto;
+  background-color: transparent;
+  color: #1f1e1e;
+}
+
+.viewcart-empty-wrap {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 2rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1.5rem;
+}
+
+.viewcart-empty-badge {
+  align-self: flex-start;
+  width: 100%;
+  max-width: 450px;
+  padding: 30px 40px;
+  box-sizing: border-box;
+  background-color: #fffeec;
+  border: 1px solid #1f1e1e;
+  border-radius: 30px;
+  box-shadow: 4px 4px 0 0 #1f1e1e;
+}
+
+.viewcart-empty-badge-text {
+  margin: 0;
+  font-family: "Albert Sans", sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.15;
+  text-align: center;
+}
+
+.viewcart-empty-cart {
+  width: min(1207px, 100%);
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 536px;
+  box-sizing: border-box;
+  padding: 30px 40px;
+  border: 1px solid #1f1e1e;
+  border-radius: 30px;
+  background-color: #fffeec;
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+}
+
+.viewcart-empty-price-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.viewcart-empty-price-label {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 28px;
+}
+
+.viewcart-empty-rule {
+  width: 100%;
+  height: 0;
+  border: none;
+  border-top: 1px solid #cbcaca;
+  margin: 0;
+}
+
+.viewcart-empty-hint {
+  margin: 0;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 8rem;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 28px;
+  text-align: center;
+  color: #cbcaca;
+}
+
+.viewcart-empty-total-line {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.viewcart-empty-rule--bottom {
+  align-self: stretch;
+}
+
+.viewcart-empty-subtotal {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 28px;
+  text-align: right;
+}
+
+.viewcart-empty-back {
+  align-self: flex-start;
+  display: inline-block;
+  padding: 12px 24px;
+  border: 1px solid #1f1e1e;
+  border-radius: 20px;
+  background-color: #f3d52a;
+  font-family: "Albert Sans", sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 28px;
+  color: #1f1e1e;
+  text-decoration: none;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.viewcart-empty-back:hover {
+  background-color: #1f1e1e;
+  color: #fffeec;
+}
+
+.viewcart-empty-back:focus-visible {
+  outline: 2px solid #1f1e1e;
+  outline-offset: 4px;
+}
+
+@media (max-width: 768px) {
+  .viewcart-empty-cart {
+    min-height: 420px;
+    padding: 24px;
+  }
+
+  .viewcart-empty-badge-text {
+    font-size: clamp(24px, 6vw, 32px);
+  }
+
+  .viewcart-empty-subtotal {
+    font-size: clamp(20px, 5vw, 32px);
+  }
+}
+
+
+
+

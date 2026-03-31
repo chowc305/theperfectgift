@@ -1,112 +1,640 @@
-@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=Beau+Rivage&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
 
+html {
+  overflow-x: hidden;
+}
 
 body{
-font-family: "Albert Sans", sans-serif;
-font-optical-sizing: auto;
-pointer:cursor;
-
-}
-.nav-bar{
-    background-color: darkgray;
-    height:4em;
-}
-.hero{
-    /* background-color: cornsilk; */
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 3em;
-    position:relative;
-    height:35em;
+ font-family: "Albert Sans", sans-serif;
+  font-optical-sizing: auto;
+  background-color: #FFFEEC;
+  color:#1F1E1E;
+  overflow-x: hidden;
 }
 
-#header{
-    font-weight: 500;
-    font-size: 60px;
-    line-height: 110px;
+.header{
+  display:flex;
+  justify-content: space-between;
+padding-left: 2em;
+padding-right: 2em;
+align-items: center;
 }
 
-#header::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 120%;
-    height: 150%;
-    
-    /* The "Outer Ring 0 Opacity" Gradient */
-    background: radial-gradient(circle, rgba(255, 132, 237, 0.8) 0%, transparent 70%);
-    
-    z-index: -1; /* Puts the color BEHIND the text */
-    opacity: 0;
-    transition: opacity 0.3s ease;
+.header img{
+  width: 45px;
+  height: 50px;
 }
 
-#header:hover::before {
-    opacity: 1;
+.header h1 {
+  margin: 0;
+  font-size: 24px;
 }
 
+.header-title-link {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
 
-#header_script{
-    font-family: "Beau Rivage", cursive;
+.header-title-link:hover {
+  opacity: 0.85;
+}
+
+.header-title-link:focus-visible {
+  outline: 2px solid #1f1e1e;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+.content{
+  position: relative;
+  width: 100%;
+}
+
+.laptop-wrap {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+.laptop-wrap .laptop {
+  pointer-events: auto;
+}
+
+/* Figma node 125:782 — speech bubble over laptop top-left */
+.laptop-bubble {
+  position: absolute;
+  z-index: 10;
+  top: clamp(-2.75rem, -10%, -1.25rem);
+  left: clamp(-5.25rem, -16%, -1.5rem);
+  max-width: min(453px, calc(100% - 0.5rem));
+  padding: 30px 40px;
+  box-sizing: border-box;
+  background-color: #fffeec;
+  border: 1px solid #1f1e1e;
+  border-radius: 30px;
+  box-shadow: 4px 4px 0 0 #000;
+  transform: rotate(-12deg);
+  transform-origin: 50% 50%;
+  pointer-events: auto;
+}
+
+.laptop-bubble-text {
+  margin: 0;
+  font-family: "Albert Sans", sans-serif;
+  font-size: 20px;
   font-weight: 400;
-  font-size: 136px;
-   margin-left: 100px;
+  line-height: 28px;
+  color: #1f1e1e;
+  text-align: center;
 }
 
-/* 1. Universal sizing for all "gift" items */
-.hero > img:not(#box) { 
-    position: absolute;
-    width: 10em;       /* Set your desired uniform width */
-    height: 10em;      /* Set your desired uniform height */
-    object-fit: contain; /* Keeps images from stretching */
-    z-index: 5; 
-    opacity: 0; 
-    animation: burstOut 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+/* Figma node 166:80 — laptop 797×717 */
+.laptop {
+  position: relative;
+  width: min(797px, calc(100vw - 32px));
+  aspect-ratio: 797 / 717;
+  flex-shrink: 0;
 }
 
-/* 2. The Box (stays unique) */
-#box {
-    position: absolute;
-    width: 20em;
-    height: auto;
-    top: 70%;
-    left: 40%;
-    z-index: 10;
+/* Screen + keyboard only; bubble stays anchored so it does not move with this shift */
+.laptop-shift {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateY(50px);
+  pointer-events: none;
 }
 
-/* 3. The Animation */
-@keyframes burstOut {
-    0% {
-        top: 75%; 
-        left: 45%;
-        transform: scale(0.1) rotate(0deg);
-        opacity: 0;
-    }
-    20% { opacity: 1; }
-    100% { opacity: 1; }
+.laptop-shift .laptop-screen,
+.laptop-shift .laptop-keyboard {
+  pointer-events: auto;
 }
 
-/* 4. Individual Coordinates & Rotations */
-/* I removed the 'width' lines here since they are now handled above */
-#watch    { top: 8%;  left: 6%;  transform: rotate(20deg);  animation-delay: 0.1s; }
-#bouquet  { top: 60%; left: 80%; transform: rotate(-10deg); animation-delay: 0.2s; }
-#lambo    { top: 2%;  left: 60%; transform: rotate(40deg);  animation-delay: 0.3s; }
-#perfume  { top: 60%; left: 5%;  transform: rotate(10deg);  animation-delay: 0.4s; }
-#bose     { top: 30%; left: 14%; transform: rotate(-3deg);  animation-delay: 0.5s; }
-#camera   { top: 10%; left: 80%; transform: rotate(10deg);  animation-delay: 0.6s; }
-#tickets  { top: 2%;  left: 30%; transform: rotate(40deg);  animation-delay: 0.7s; }
+.laptop-screen {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: calc(661 / 797 * 100%);
+  height: calc(481 / 717 * 100%);
+  background-color: #fffeec;
+  border: 1px solid #1f1e1e;
+  border-radius: clamp(14px, 6.05%, 40px);
+  box-sizing: border-box;
+  overflow: hidden;
+}
 
-.sign-up{
-background-color: rgba(255, 132, 237, 0.8);
-display:flex;
-flex-direction: column;
-gap:1em;
-width: 40em;
-align-content:center;
-padding: 2em;
-border-radius: 20px;
+
+.laptop-screen-inner {
+  position: absolute;
+  left: calc(18 / 661 * 100%);
+  top: calc(19 / 481 * 100%);
+  width: calc(625 / 661 * 100%);
+  height: calc(444 / 481 * 100%);
+  box-sizing: border-box;
+  border: #1F1E1E solid 1px;
+  border-radius: clamp(14px, 6.05%, 40px);
+}
+
+/* Figma 172:508 — completion state on laptop screen inner */
+.laptop-screen-complete {
+  position: absolute;
+  inset: 0;
+  z-index: 25;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  background-color: #fffeec;
+  border-radius: inherit;
+  pointer-events: auto;
+}
+
+.laptop-screen-complete[hidden] {
+  display: none !important;
+}
+
+.laptop-screen-complete-card {
+  width: min(361.95px, calc(100% - 32px));
+  min-height: 138px;
+  box-sizing: border-box;
+  padding: 30px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #F3D52A;
+  border: 1px solid #1f1e1e;
+  border-radius: 30px;
+}
+
+#laptopScreenComplete .laptop-screen-complete-copy,
+#laptopScreenComplete .laptop-screen-complete-line {
+  outline: none;
+  -webkit-text-stroke: 0;
+  text-shadow: none;
+}
+
+.laptop-screen-complete-copy {
+  margin: 0;
+  font-family: "Albert Sans", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 28px;
+  color: #1f1e1e;
+  text-align: center;
+}
+
+.laptop-screen-complete-line {
+  display: block;
+}
+
+/* Figma 177:646 — default: outline + dark text; hover: fill + cream text */
+.laptop-screen-complete-next {
+  padding: 12px 24px;
+  min-width: 100px;
+  box-sizing: border-box;
+  border: 1px solid #1f1e1e;
+  border-radius: 20px;
+  background-color: transparent;
+  color: #1f1e1e;
+  font-family: "Albert Sans", sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 28px;
+  text-align: center;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.15s ease;
+}
+
+.laptop-screen-complete-next:hover {
+  background-color: #1f1e1e;
+  color: #fffeec;
+  border-color: #1f1e1e;
+}
+
+.laptop-screen-complete-next:focus-visible {
+  outline: 2px solid #1f1e1e;
+  outline-offset: 3px;
+}
+
+.laptop-screen-complete-next:active {
+  transform: scale(0.98);
+}
+
+@keyframes laptop-cell-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes laptop-cell-jitter {
+  0%,
+  100% {
+    transform: translateY(-8px) rotate(-5deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(5deg);
+  }
+}
+
+.laptop-cell {
+  position: absolute;
+  box-sizing: border-box;
+  border: 1px solid #1f1e1e;
+  border-radius: clamp(10px, 3.2%, 20px);
+  background-color: #fffeec;
+  overflow: hidden;
+  transform-origin: center center;
+}
+
+.laptop-cell:not(.laptop-cell--dismissed):not(.laptop-cell--hover) {
+  transition: transform 0.22s ease-out;
+}
+
+.laptop-cell:not(.laptop-cell--dismissed).laptop-cell--hover {
+  animation: laptop-cell-jitter 0.35s ease-in-out infinite;
+}
+
+.laptop-cell--dismissed {
+  opacity: 0;
+  pointer-events: none;
+  animation: none !important;
+  transform: none !important;
+  transition: opacity 0.28s ease-out;
+}
+
+.laptop-cell--dismissed .laptop-cell-cancel {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Match inset + scale to .laptop-cell--airpods (padding + ~square hit area in that frame) */
+.laptop-cell-cancel {
+  position: absolute;
+  top: clamp(4px, 1.2vw, 10px);
+  right: clamp(4px, 1.2vw, 10px);
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(22px, 20%, 30px);
+  height: clamp(22px, 20%, 30px);
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: rgba(255, 254, 236, 0.92);
+  box-shadow: 0 0 0 1px #1f1e1e;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s ease-out;
+  line-height: 0;
+  box-sizing: border-box;
+}
+
+.laptop-cell:not(.laptop-cell--dismissed):hover .laptop-cell-cancel,
+.laptop-cell:not(.laptop-cell--dismissed):focus-within .laptop-cell-cancel {
+  opacity: 1;
+}
+
+.laptop-cell-cancel:focus-visible {
+  outline: 2px solid #1f1e1e;
+  outline-offset: 2px;
+}
+
+.laptop-cell-cancel-icon {
+  display: block;
+  width: 62%;
+  height: 62%;
+  max-width: 18px;
+  max-height: 18px;
+  min-width: 10px;
+  min-height: 10px;
+  object-fit: contain;
+  object-position: center center;
+  pointer-events: none;
+}
+
+.laptop-cell img:not(.laptop-cell-cancel-icon) {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Inner grid positions — Figma “laptop screen inner” 625×444 */
+.laptop-cell--perfume {
+  left: calc(35 / 625 * 100%);
+  top: calc(18 / 444 * 100%);
+  width: calc(126 / 625 * 100%);
+  height: calc(126 / 444 * 100%);
+}
+
+.laptop-cell--camera {
+  left: calc(177 / 625 * 100%);
+  top: calc(16 / 444 * 100%);
+  width: calc(126 / 625 * 100%);
+  height: calc(127 / 444 * 100%);
+}
+
+.laptop-cell--camera img:not(.laptop-cell-cancel-icon) {
+  position: relative;
+  z-index: 0;
+  object-position: center top;
+  transform: translateY(-12.58%);
+  height: 115%;
+}
+
+/* Explicit stack so .laptop-cell-cancel (z-index: 20) stays above transformed image */
+.laptop-cell--camera .laptop-cell-cancel {
+  z-index: 21;
+}
+
+.laptop-cell--camera .laptop-cell-cancel-icon {
+  transform: translateY(1px);
+}
+
+.laptop-cell--keychain {
+  left: calc(319 / 625 * 100%);
+  top: calc(18 / 444 * 100%);
+  width: calc(126 / 625 * 100%);
+  height: calc(126 / 444 * 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.laptop-cell-keychain-inner {
+  width: 61%;
+  height: 75%;
+  transform: rotate(-22.02deg);
+  flex-shrink: 0;
+}
+
+.laptop-cell-keychain-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.laptop-cell--airpods {
+  left: calc(461 / 625 * 100%);
+  top: calc(18 / 444 * 100%);
+  width: calc(127 / 625 * 100%);
+  height: calc(126 / 444 * 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(4px, 1.2vw, 10px);
+}
+
+.laptop-cell--airpods img {
+  width: 100%;
+  height: auto;
+  max-height: 120%;
+  object-fit: contain;
+  object-position: center center;
+}
+
+.laptop-cell--flowers {
+  left: calc(35 / 625 * 100%);
+  top: calc(158 / 444 * 100%);
+  width: calc(126 / 625 * 100%);
+  height: calc(126 / 444 * 100%);
+}
+
+.laptop-cell--watch {
+  left: calc(178 / 625 * 100%);
+  top: calc(158 / 444 * 100%);
+  width: calc(127 / 625 * 100%);
+  height: calc(126 / 444 * 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.laptop-cell-watch-inner {
+  width: 100%;
+  height: 100%;
+  max-width: 127px;
+  max-height: 126px;
+  transform: rotate(90deg);
+  transform-origin: center center;
+}
+
+.laptop-cell-watch-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.laptop-cell--tickets {
+  left: calc(321 / 625 * 100%);
+  top: calc(158 / 444 * 100%);
+  width: calc(127 / 625 * 100%);
+  height: calc(126 / 444 * 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(4px, 1.2vw, 10px);
+}
+
+.laptop-cell-tickets-inner {
+  width: 85%;
+  height: 90%;
+  transform: rotate(106.5deg);
+  transform-origin: center center;
+}
+
+.laptop-cell-tickets-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.laptop-cell--mug {
+  left: calc(462 / 625 * 100%);
+  top: calc(158 / 444 * 100%);
+  width: calc(126 / 625 * 100%);
+  height: calc(126 / 444 * 100%);
+}
+
+.laptop-cell--pen {
+  left: calc(37.28 / 625 * 100%);
+  top: calc(299.83 / 444 * 100%);
+  width: calc(126 / 625 * 100%);
+  height: calc(126 / 444 * 100%);
+}
+
+.laptop-cell--ipad {
+  left: calc(178 / 625 * 100%);
+  top: calc(299 / 444 * 100%);
+  width: calc(126 / 625 * 100%);
+  height: calc(126 / 444 * 100%);
+}
+
+.laptop-cell--ipad img {
+  object-position: 28% center;
+}
+
+.laptop-cell--giftcard {
+  left: calc(321 / 625 * 100%);
+  top: calc(299 / 444 * 100%);
+  width: calc(126 / 625 * 100%);
+  height: calc(126 / 444 * 100%);
+}
+
+.laptop-cell--giftcard img {
+  object-position: center 8%;
+}
+
+.laptop-cell--incense {
+  left: calc(462 / 625 * 100%);
+  top: calc(300 / 444 * 100%);
+  width: calc(126 / 625 * 100%);
+  height: calc(126 / 444 * 100%);
+}
+
+.laptop-keyboard {
+  position: absolute;
+  left: 53%;
+  top: calc(481 / 717 * 100%);
+  transform: translateX(-50%);
+  width: calc(841 / 797 * 100%);
+  height: calc(236 / 717 * 100%);
+  pointer-events: none;
+}
+
+.laptop-keyboard img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  position: relative;
+  z-index: 0;
+}
+
+/* HTML key rectangles over chassis (matches line-art keyboard layout) */
+.laptop-keyboard-keys {
+  position: absolute;
+  z-index: 1;
+  left: calc(14% - 20px);
+  right: calc(14% + 20px);
+  top: calc(19% - 30px);
+  bottom: calc(13% + 30px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: clamp(1px, 0.2vw, 2px);
+  box-sizing: border-box;
+  transform: scale(0.88);
+  transform-origin: 50% 38%;
+}
+
+.laptop-kb-row {
+  display: flex;
+  flex-direction: row;
+  flex: 1 1 0;
+  min-height: 0;
+  gap: clamp(1px, 0.2vw, 2px);
+  align-items: stretch;
+}
+
+.laptop-kb-row--fn {
+  flex: 0.55 1 0;
+  justify-content: flex-end;
+  align-items: stretch;
+}
+
+.laptop-kb-key {
+  flex: 1 1 0;
+  min-width: 0;
+  box-sizing: border-box;
+  border: 1px solid #1f1e1e;
+  border-radius: 1px;
+  background-color: rgba(255, 254, 236, 0.92);
+}
+
+.laptop-kb-key--fn {
+  flex: 0 0 5%;
+  max-width: 6.5%;
+  min-width: 0;
+}
+
+.laptop-kb-key--tab {
+  flex: 1.35 1 0;
+}
+
+.laptop-kb-key--enter {
+  flex: 1.75 1 0;
+}
+
+.laptop-kb-key--shift {
+  flex: 1.65 1 0;
+}
+
+.laptop-kb-row--space {
+  flex: 1.1 1 0;
+}
+
+.laptop-kb-key--medium {
+  flex: 1.15 1 0;
+}
+
+.laptop-kb-key--space {
+  flex: 4.5 1 0;
+}
+
+.laptop-kb-trackpad {
+  flex: 0 0 19%;
+  min-height: 14px;
+  margin-top: 1px;
+  box-sizing: border-box;
+  border: 1px solid #1f1e1e;
+  border-radius: 3px;
+  background-color: rgba(255, 254, 236, 0.85);
+  align-self: center;
+  width: 46%;
+}
+
+.grid-container {
+            position: relative;
+            z-index: 0;
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+            /* Fixed height as requested */
+            height: 900px; 
+            
+            /* The Grid Logic */
+            background-size: 50px 50px;
+            background-image:
+                linear-gradient(to right, rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+            
+            background-color: #FFFEEC;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
 }

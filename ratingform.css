@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  font-family: "Albert Sans", sans-serif;
+  font-optical-sizing: auto;
+  color: #1f1e1e;
+  background-color: #fffeec;
+  overflow-x: hidden;
+}
+
+.header {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 45px 12px;
+  background-color: #fffeec;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.1;
+  font-weight: 600;
+}
+
+.header-title-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.header-cart {
+  position: relative;
+  width: 49px;
+  height: 54px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.header-cart-img--default {
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  display: block;
+  width: 45px;
+  height: 50px;
+}
+
+.header-cart-img--default[hidden] {
+  display: none !important;
+}
+
+.header-cart-add1 {
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  width: 45px;
+  height: 50px;
+}
+
+.header-cart-add1[hidden] {
+  display: none !important;
+}
+
+.header-cart-add1-img {
+  position: relative;
+  z-index: 0;
+  display: block;
+  width: 45px;
+  height: 50px;
+  object-fit: contain;
+  object-position: center;
+}
+
+.header-cart-add1-badge {
+  position: absolute;
+  z-index: 1;
+  right: -2px;
+  bottom: 2px;
+  width: 22px;
+  height: 22px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  background-color: #f3d52a;
+  border: 1px solid #1f1e1e;
+  font-family: "Albert Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  text-align: center;
+  color: #1f1e1e;
+  padding-top: 1px;
+}
+
+.content {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  box-sizing: border-box;
+  background-size: 50px 50px;
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+  background-color: #fffeec;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  padding: 16px 20px 28px;
+  min-height: calc(100vh - 82px);
+}
+
+.rating-intro {
+  width: min(567px, calc(100% - 32px));
+  margin: 14px auto 24px;
+  border: 1px solid #1f1e1e;
+  border-radius: 30px;
+  box-shadow: 4px 4px 0 0 #1f1e1e;
+  padding: 30px 40px;
+  box-sizing: border-box;
+  background-color: #fffeec;
+}
+
+.rating-intro p {
+  margin: 0;
+  text-align: center;
+  font-size: 32px;
+  line-height: 37px;
+  font-weight: 600;
+}
+
+.rating-card {
+  width: min(1207px, 100%);
+  margin: 0 auto;
+  padding: 30px 40px;
+  box-sizing: border-box;
+  border: 1px solid #1f1e1e;
+  border-radius: 30px;
+  background-color: #fffeec;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.question-group {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.question-group legend {
+  padding: 0;
+  margin: 0 0 12px;
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 600;
+}
+
+.question-group label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 10px 16px;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 700;
+}
+
+.question-group input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: #1f1e1e;
+}
+
+.rating-submit {
+  margin-top: 8px;
+  width: fit-content;
+  min-width: 116px;
+  padding: 12px 24px;
+  border: 1px solid #1f1e1e;
+  border-radius: 20px;
+  background-color: #fffeec;
+  color: #1f1e1e;
+  font-family: "Albert Sans", sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 28px;
+  cursor: pointer;
+}
+
+.rating-submit:hover {
+  background-color: #1f1e1e;
+  color: #fffeec;
+}
+
+@media (max-width: 900px) {
+  .header {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .rating-intro {
+    padding: 22px 24px;
+  }
+
+  .rating-intro p {
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  .rating-card {
+    padding: 20px;
+  }
+
+  .question-group legend,
+  .question-group label,
+  .rating-submit {
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
